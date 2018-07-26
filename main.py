@@ -27,3 +27,10 @@ class RPS(Player):
         super(RPS, self).__init__(name)
         self.p1Input = None
         self.compInput = None
+
+    def clearUp(self):
+        self.p1Input = None
+        self.compInput = None
+
+    def computerChoice(self):
+        self.compInput = random.choice(["r", "p", "s"])
