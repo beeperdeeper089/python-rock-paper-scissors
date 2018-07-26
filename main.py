@@ -7,6 +7,8 @@ import random
 import sys
 import os
 
+RPS_literal = {"r": "rock", "p": "paper", "s": "scissors"}
+RPS_mathematical = {"r": 0, "p": 1, "s": 2}
 
 class Player(object):
     def __init__(self, name):
