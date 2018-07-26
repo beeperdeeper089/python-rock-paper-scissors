@@ -64,21 +64,29 @@ if __name__ == "__main__":
     game = None
     
     while True:
-        if not isinstance(game, RPS):
-            temp_name = input("Enter your name: ")
+        try:
+            if not isinstance(game, RPS):
+                temp_name = input("Enter your name: ")
                 
-            game = RPS(temp_name)                
+                game = RPS(temp_name)                
                 
-            del temp_name # Delete temp_name variable, cuz why not...
+                del temp_name # Delete temp_name variable, cuz why not...
 
-        elif game.lives == 0:
-            print("Oh no! %s, you have run out of lives! What will we do... Guess you'll have to try again later!" % (game.name))
+            elif game.lives == 0:
+                print("Oh no! %s, you have run out of lives! What will we do... Guess you'll have to try again later!" % (game.name))
 
-        elif isinstance(game, RPS):
+            elif isinstance(game, RPS):
 
-            game.userChoice()
-            game.computerChoice()
-            game.verifyWinner()
+                game.userChoice()
+                game.computerChoice()
+                game.verifyWinner()
 
-            if input("Would you like to play again? Yes or No: ").lower() == "no":
-                break
+                if input("Would you like to play again? Yes or No: ").lower() == "no":
+                    break
+                 
+        except KeyboardInterrupt:
+            print('\n Bye Bye! See you later!!')
+            try:
+                sys.exit(0)
+            except SystemExit:
+                os._exit(0)
