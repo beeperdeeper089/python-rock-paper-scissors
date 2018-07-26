@@ -21,3 +21,9 @@ class Player(object):
     
     def gainPoint(self):
         self.points += 1
+
+class RPS(Player):
+    def __init__(self, name):
+        super(RPS, self).__init__(name)
+        self.p1Input = None
+        self.compInput = None
