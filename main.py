@@ -43,3 +43,18 @@ class RPS(Player):
                 print("You didn't choose anything. Please choose something :)")
             elif self.p1Input not in RPS_literal:
                 print("Invalid entry. Please choose one of the given choices.")
+
+    def verifyWinner(self):
+        p1Math = RPS_mathematical.get(self.p1Input, None)
+        compMath = RPS_mathematical.get(self.compInput, None)
+
+        if (p1Math+1) % 3 == compMath:
+            self.loseLife()
+            print("Sorry 'bout this. You lost. You now have %d lives left." % (self.lives))
+        elif p1Math == compMath:
+            self.gainPoint()
+            print("Ah shoot. You didn't win, you didn't lose though, so all's good!")
+        else:
+            print("Wahoo! Well done, %s, you won!" % (self.name))
+
+        self.clearUp()
