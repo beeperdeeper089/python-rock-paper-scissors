@@ -34,3 +34,12 @@ class RPS(Player):
 
     def computerChoice(self):
         self.compInput = random.choice(["r", "p", "s"])
+    
+    def userChoice(self):
+        while self.p1Input not in RPS_literal:
+            self.p1Input = input(
+                "Do you choose: Rock(r), Paper(p) or Scissors(s): ").lower()
+            if self.p1Input == "":
+                print("You didn't choose anything. Please choose something :)")
+            elif self.p1Input not in RPS_literal:
+                print("Invalid entry. Please choose one of the given choices.")
